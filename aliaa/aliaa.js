@@ -63,7 +63,7 @@ function createMeal(meal, highlight) {
         highlight
           ? meal.strMeal.replace(
               regex,
-              (match) => `<span class="bg-info text-white">${match}</span>`
+              (match) => `<span class="bg-info text-white">${match}</span>`,
             )
           : meal.strMeal
       }</h5>

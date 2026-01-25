@@ -13,16 +13,34 @@
 
 <body>
 
+    <a href="ingredient.html">Ingredient</a>
 
+    <!--search-->
+    <div class="container my-5" id="cardsSection">
+        <div class="row g-3 mb-4">
+            <div class="col-md-6 ">
+                <input class="form-control" id="searchByNameInput" placeholder="Search By Name" />
+            </div>
+            <div class="col-md-6">
+                <input class="form-control" id="searchByLetterInput" placeholder="Search By First Letter" maxlength="1"
+                    list="lettersList" />
+            </div>
+        </div>
 
+        <div id="results" class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3"></div>
 
+    </div>
 
+    <!-- Section  Meal Detasils -->
+    <div class="container w-75 my-1 py-2 mt-5 position-relative" id="mealSection" style="display:none;">
+        <button id="backBtn" class="btn btn-secondary mb-3">Back</button>
+        <div id="mealDetails" class="row"></div>
+    </div>
 
 
     <!--script-->
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
 </body>
-
 
 </html>
