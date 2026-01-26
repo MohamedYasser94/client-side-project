@@ -1,4 +1,17 @@
+import getMealDetails from "../utils .js";
+
 let results = document.getElementById("results");
+
+const params = new URLSearchParams(window.location.search);
+const area = params.get("ingName");
+
+// async function getMeals(area) {
+//   let res = await fetch(
+//     `https://www.themealdb.com/api/json/v1/1/filter.php?i=${area}`,
+//   );
+//   let data = await res.json();
+//   displayMeals(data.meals);
+// }
 
 let flags = [];
 fetch("../data/areas.json")
@@ -22,7 +35,8 @@ async function getArea() {
 function displayArea(areas) {
   let str = "";
   for (let i = 0; i < areas.meals.length; i++) {
-    str += `<div class="col">
+    str += `<a href=>
+    <div class="col">
   <div class="area-card" data-name=${areas.meals[i].strArea} >
     <div class="area-img-box">
       <img src="${flags[i].flag}" alt="${areas.meals[i].strArea}">
@@ -33,6 +47,7 @@ function displayArea(areas) {
     </div>
   </div>
 </div>
+    </a>
   `;
   }
 
