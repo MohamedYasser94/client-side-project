@@ -101,7 +101,13 @@ function displayData(meals, flags) {
             </div>
             <div class="ingredient-info">
               <h5>${meal.strIngredient || meal.strArea || meal.strCategory}</h5>
-              ${`<p>${meal.strIngredient ? meal.strDescription.slice(0, 100) : meal.strCategoryDescription.slice(0, 100)}</p> `}
+              <p>${
+                meal.strDescription
+                  ? meal.strDescription.slice(0, 100)
+                  : meal.strCategoryDescription
+                    ? meal.strCategoryDescription.slice(0, 100)
+                    : ""
+              }</p> 
             </div>
           </div>
         </div>
