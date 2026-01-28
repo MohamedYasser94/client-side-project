@@ -1,6 +1,6 @@
 export default async function getMealDetails(mealID) {
   let meal = await fetch(
-    `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`
+    `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`,
   );
 
   meal = await meal.json();
@@ -51,7 +51,6 @@ export function displayMeals(meals) {
   let str = "";
 
   meals.forEach((meal) => {
-    console.log(meal.strMeal);
     str += `
      <a href="meal.html?id=${meal.idMeal}">
   <div class="col" >
@@ -81,22 +80,25 @@ export function displayMeals(meals) {
 //--------------------------------------------------------------------------
 const dataResult = document.getElementById("dataResult");
 
-function displayData(meals) {
+function displayData(meals, flags) {
   let str = "";
 
-  meals.forEach((meal) => {
+  meals.forEach((meal, i) => {
     str += `
-      <a href="meals.html?ingName=${
-        meal.strIngredient || meal.strArea || meal.strCategory
-      }">
+      <a href="meals.html?type=${
+        meal.strIngredient ? "i" : meal.strArea ? "a" : "c"
+      }&recipe=${meal.strIngredient || meal.strArea || meal.strCategory}">
         <div class="col">
           <div class="ingredient-card rounded-3">
             <div class="ingredient-img-box">
               <img 
-                src="https://www.themealdb.com/images/ingredients/${
-                  meal.strIngredient
-                }.png"
-                alt="${meal.strIngredient || meal.strArea || meal.strCategory}"
+                src="${
+                  (meal.strIngredient &&
+                    `https://www.themealdb.com/images/ingredients/${meal.strIngredient}.png`) ||
+                  flags?.meals[i]?.flag ||
+                  ""
+                }"
+                alt="${meal.strIngredient || meal.strArea || ""}"
               >
             </div>
             <div class="ingredient-info">
@@ -116,23 +118,23 @@ function displayData(meals) {
   dataResult.innerHTML = str;
 }
 
-export async function getData(data) {
+export async function getData(data, flags = []) {
   if (data[2] === "ingredient.html") {
     const res = await fetch(
-      "https://www.themealdb.com/api/json/v1/1/list.php?i=list"
+      "https://www.themealdb.com/api/json/v1/1/list.php?i=list",
     );
     const resData = await res.json();
     displayData(resData.meals.slice(0, 20));
   } else if (data[2] === "area.html") {
     const res = await fetch(
-      "https://www.themealdb.com/api/json/v1/1/list.php?a=list"
+      "https://www.themealdb.com/api/json/v1/1/list.php?a=list",
     );
     const resData = await res.json();
     console.log(resData);
-    displayData(resData.meals);
+    displayData(resData.meals, flags);
   } else if (data[2] === "categories.html") {
     const res = await fetch(
-      "https://www.themealdb.com/api/json/v1/1/list.php?c=list"
+      "https://www.themealdb.com/api/json/v1/1/list.php?c=list",
     );
     const resData = await res.json();
     console.log(resData);
