@@ -124,7 +124,7 @@ body {
 
 .main-content {
     margin-left: 0 !important;
-    padding-top: 70px;
+    /* padding-top: 70px; */
     transition: var(--transition);
 }
 
@@ -180,7 +180,7 @@ body {
 
 .btn-main {
     background: transparent;
-    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    border: 1.5px solid var(--yellow);
     color: var(--white);
     padding: 14px 45px;
     font-size: 1rem;
