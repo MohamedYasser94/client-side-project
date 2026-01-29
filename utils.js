@@ -1,15 +1,15 @@
+"use strict";
+
+let mealDetails = document.getElementById("mealDetails");
+
 export default async function getMealDetails(mealID) {
   let meal = await fetch(
     `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`,
   );
-
   meal = await meal.json();
-
   const mealObj = meal.meals[0];
   displayMealDetails(mealObj);
 }
-
-let mealDetails = document.getElementById("mealDetails");
 
 export function displayMealDetails(mealObj) {
   let recipes = "";
@@ -41,9 +41,7 @@ export function displayMealDetails(mealObj) {
     <a class="btn youtube text-white" target="_blank" href="${mealObj.strYoutube}">Youtube</a>
   </div>
 </div>
-
 `;
-
   mealDetails.innerHTML = html;
 }
 
