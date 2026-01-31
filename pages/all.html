@@ -73,8 +73,27 @@
           <a href="#">❤</a>
         </div> -->
         <i class="fa-solid fa-bars menu-toggle" id="toggleBtn"></i>
+
+        <div class="nav-right-side d-flex align-items-center" style="gap: 20px;">
+          
+
+          <div class="favourite">
+            <a href="/pages/favorites.html" style="color: red; font-size: 22px; text-decoration: none;">❤</a>
+          </div>
+          
+          <div id="userProfile" style="display: none; align-items: center; gap: 15px;">
+            
+            <span id="userNameDisplay" class="text-warning fw-bold" style="font-size: 16px;"></span>
+
+            
+
+
+            
+            <button id="logoutBtn" class="btn btn-sm btn-outline-danger rounded-pill px-3"
+              style="font-size: 12px;">Logout</button>
+          </div>
+        </div>
       </div>
-    </div>
   </nav>
   <!-- search -->
   <!-- <div class="container my-5 pt-5" id="cardsSection">
@@ -97,9 +116,17 @@
   <script type="module" src="/utils.js"></script>
   <script type="module" src="/js/nav.js"></script>
   <script type="module" src="/js/index.js"></script>
+  <script type="module" src="/js/home.js"></script>
 
 
   <script type="module" src="../js/main.js"></script>
+
+  <script>
+
+    if (!sessionStorage.getItem("loggedUser")) {
+      location.href = "login.html";
+    }
+  </script>
 
 
 </body>

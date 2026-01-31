@@ -66,27 +66,33 @@ head
       <div class="nav-toggle">
         <i class="fa-solid fa-bars" id="toggleBtn"></i>
       </div>
-      <div class="nav-right-side d-flex align-items-center" style="gap: 20px;">
-        <div class="favourite">
-          <a href="/pages/favorites.html" style="color: red; font-size: 22px; text-decoration: none;">❤</a>
+      <div class="nav-right-side d-flex align-items-center" style="gap: 15px;">
+
+
+        <div id="userProfile" style="display: none; align-items: center; gap: 15px;">
+
+
+          <div class="favourite">
+            <a href="/pages/favorites.html" style="color: red; font-size: 22px; text-decoration: none;">❤</a>
+          </div>
+
+
+          <span id="userNameDisplay" class="text-warning fw-bold" style="font-size: 16px;"></span>
+
+
+          <button id="logoutBtn" class="btn btn-sm btn-outline-danger rounded-pill px-3"
+            style="font-size: 12px;">Logout</button>
         </div>
 
-        
-        <div id="userProfile" style="display: none; align-items: center;">
-          
-          <span id="userNameDisplay" class="text-warning fw-bold me-2" style="font-size: 16px; ;"></span>
 
-          
-          <!-- <div class="favourite">
-            <a href="#" style="color: red; font-size: 22px; text-decoration: none;">❤</a>
-          </div> -->
+        <div id="authButtons" style="display: flex; align-items: center; gap: 10px;">
+          <button class="btn-login">Login</button>
+          <button id="registerBtn" class="btn-login">Register</button>
         </div>
 
-        
-        <div id="authButtons" style="display: flex; align-items: center;">
-          <button class="btn-login ms-3">Login</button>
-          <button id="registerBtn" class="ms-2 btn btn-outline-warning btn-sm">Register</button>
-        </div>
+      </div>
+
+    </div>
   </nav>
 
   <div class="main-content" id="mainContent">
@@ -96,7 +102,7 @@ head
         <p class="fs-5 text-light-50 mb-5 mt-3 fw-light">
           Discover Delicious Meals From Around The World
         </p>
-        <button class="btn-main">Get Started</button>
+        <button id="getStartedBtn" class="btn-main">Get Started</button>
       </div>
     </div>
 

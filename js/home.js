@@ -55,14 +55,25 @@ function getRandomMeal() {
       var data = JSON.parse(xhr.responseText);
       var meal = data.meals[0];
 
+      const isUserLoggedIn = sessionStorage.getItem("loggedUser");
+
+      let targetPath = isUserLoggedIn
+        ? `pages/meal.html?id=${meal.idMeal}`
+        : `pages/login.html`;
+
       document.getElementById("randomMeal").innerHTML = `
                 <div class="col-md-6 col-lg-4">
-                    <a href="details.html?id=${meal.idMeal}" class="text-decoration-none">
+                    
+                    <a href="${targetPath}" class="text-decoration-none" 
+                        ${!isUserLoggedIn ? "" : ""}>
                         <div class="card bg-dark text-white border-0 shadow-lg overflow-hidden rounded-4">
                             <img src="${meal.strMealThumb}" class="card-img-top">
                             <div class="p-4 text-start">
                                 <h5 class="text-warning fw-bold mb-1">${meal.strMeal}</h5>
-                                <p class="mb-0 text-secondary small">Click to view recipe →</p>
+                                
+                                <p class="mb-0 text-secondary small">
+                                    ${isUserLoggedIn ? "Click to view recipe →" : "Login to view recipe →"}
+                                </p>
                             </div>
                         </div>
                     </a>
@@ -86,6 +97,7 @@ function getRandomMeal() {
 const userProfile = document.getElementById("userProfile");
 const authButtons = document.getElementById("authButtons");
 const userNameDisplay = document.getElementById("userNameDisplay");
+const logoutBtn = document.getElementById("logoutBtn");
 
 const loginBtn = document.querySelector(".btn-login");
 const registerBtn = document.getElementById("registerBtn");
@@ -108,8 +120,29 @@ function updateNavbar() {
 
 updateNavbar();
 
+if (logoutBtn) {
+  logoutBtn.onclick = () => {
+    sessionStorage.clear();
+    window.location.reload();
+  };
+}
+
 if (loginBtn)
   loginBtn.onclick = () => (window.location.href = "pages/login.html");
 if (registerBtn)
   registerBtn.onclick = () =>
     (window.location.href = "pages/registration.html");
+
+const getStartedBtn = document.getElementById("getStartedBtn");
+
+if (getStartedBtn) {
+  getStartedBtn.onclick = function () {
+    const isLogged = sessionStorage.getItem("loggedUser");
+
+    if (isLogged) {
+      window.location.href = "pages/all.html";
+    } else {
+      window.location.href = "pages/login.html";
+    }
+  };
+}
