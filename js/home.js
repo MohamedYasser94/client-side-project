@@ -1,17 +1,4 @@
-// const sideNav = document.getElementById("sideNav");
-// const toggleBtn = document.getElementById("toggleBtn");
 const mainContent = document.getElementById("mainContent");
-
-// toggleBtn.onclick = function () {
-//   sideNav.classList.toggle("open");
-//   if (sideNav.classList.contains("open")) {
-//     toggleBtn.classList.replace("fa-bars", "fa-xmark");
-//     mainContent.style.marginLeft = "320px";
-//   } else {
-//     toggleBtn.classList.replace("fa-xmark", "fa-bars");
-//     mainContent.style.marginLeft = "70px";
-//   }
-// };
 
 async function getCategories() {
   try {

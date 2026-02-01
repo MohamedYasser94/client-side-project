@@ -261,6 +261,13 @@
       "email": "hulyj@mailinator.com",
       "phone": "+1 (732) 831-9604",
       "password": "Pa$$w0rd!"
+    },
+    {
+      "id": "ba4d",
+      "username": "hedra",
+      "email": "emadhedra4@gmail.com",
+      "phone": "01212171762",
+      "password": "12345678"
     }
   ]
 }

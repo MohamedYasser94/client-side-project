@@ -1,6 +1,4 @@
-//aliaa : search by name and first letter and home page
 
-// import createMeal from "../utils.js";
 
 import { displayMeals } from "../utils.js";
 

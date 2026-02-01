@@ -31,7 +31,7 @@ form.addEventListener("submit", async function (e) {
 
   try {
     const checkResponse = await fetch(
-      `http://localhost:3000/users?email=${email}`,
+      `http://localhost:5501/users?email=${email}`,
     );
     const existingUsers = await checkResponse.json();
 
@@ -41,7 +41,7 @@ form.addEventListener("submit", async function (e) {
       return;
     }
 
-    const response = await fetch("http://localhost:3000/users", {
+    const response = await fetch("http://localhost:5501/users", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newUser),
@@ -49,7 +49,6 @@ form.addEventListener("submit", async function (e) {
 
     if (!response.ok) throw new Error("Failed to register");
 
-    // alert("Registration Successful!");
     form.reset();
     sessionStorage.setItem(
       "loggedUser",
@@ -63,6 +62,5 @@ form.addEventListener("submit", async function (e) {
   } catch (error) {
     errorMsg.textContent = "Something went wrong, try again later";
     errorMsg.classList.remove("d-none");
-    console.error(error);
   }
 });
