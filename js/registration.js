@@ -20,9 +20,17 @@ form.addEventListener("submit", async function (e) {
     errorMsg.classList.remove("d-none");
     return;
   }
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(email)) {
+    errorMsg.textContent = "Please enter a valid email address";
+    errorMsg.classList.remove("d-none");
+    return;
+  }
 
-  if (password.length < 4) {
-    errorMsg.textContent = "Password must be at least 4 characters";
+  const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
+  if (!passwordPattern.test(password)) {
+    errorMsg.textContent =
+      "Password must be at least 6 characters, include uppercase, lowercase letters and a number";
     errorMsg.classList.remove("d-none");
     return;
   }
@@ -61,7 +69,6 @@ form.addEventListener("submit", async function (e) {
       "loggedUser",
       JSON.stringify({
         username: newUser.username,
-        fav: newUser.favorites,
         loginAt: new Date().toISOString(),
       }),
     );

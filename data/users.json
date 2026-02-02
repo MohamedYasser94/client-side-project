@@ -50,6 +50,40 @@
       "phone": "01212171762",
       "password": "123456789",
       "favorites": []
+    },
+    {
+      "id": "c0fa",
+      "username": "kkkk",
+      "email": "ali@gmail",
+      "phone": "01212171762",
+      "password": "44444444",
+      "favorites": []
+    },
+    {
+      "id": "2ac1",
+      "username": "kkkk",
+      "email": "ali@g",
+      "phone": "01212171762",
+      "password": "55555555",
+      "favorites": []
+    },
+    {
+      "id": "0978",
+      "username": "Ahmed",
+      "email": "ahmer@gmail.com",
+      "phone": "01212171762",
+      "password": "A12345Hedra",
+      "favorites": []
+    },
+    {
+      "id": "530e",
+      "username": "HedraEmad",
+      "email": "emadhedra5@gmail.com",
+      "phone": "01212171762",
+      "password": "Hedra555",
+      "favorites": [
+        "53322"
+      ]
     }
   ]
 }

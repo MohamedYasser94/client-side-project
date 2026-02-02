@@ -120,14 +120,11 @@ window.handleFavoriteClick = async function (mealId) {
 
   loggedUser.favorites = favorites;
 
-  // Update session
   sessionStorage.setItem("loggedUser", JSON.stringify(loggedUser));
 
-  // Update UI
   const favBtn = document.getElementById("fav-" + mealId);
   if (favBtn) favBtn.classList.toggle("active");
 
-  // Update db.json
   try {
     const res = await fetch(`http://localhost:5501/users/${loggedUser.id}`, {
       method: "PATCH",
